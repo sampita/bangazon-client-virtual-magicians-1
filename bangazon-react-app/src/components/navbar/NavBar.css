@@ -1,0 +1,8 @@
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li.nav {
+    list-style: none outside none;
+}

@@ -11,9 +11,8 @@ class Home extends Component {
 //   componentDidMount() {
 
 
-//         })
+//         })}
 
-  }
 
   render() {
     return (
@@ -25,7 +24,7 @@ class Home extends Component {
 
         <section id="product-location">
           <div>
-            <h2>This is where we will have product locations listed</h2>
+            <h2>This is home</h2>
           </div>
         </section>
 

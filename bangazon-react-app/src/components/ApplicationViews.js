@@ -1,13 +1,15 @@
-import { Route, Redirect } from "react-router-dom"
-import React, { Component } from 'react'
-import Home from './home/Home'
-
-
-const ApplicationViews = () => (
-      <React.Fragment>
-        <Route exact path="/"
-          return <Home />
-      </React.Fragment>
-    )
-
-export default ApplicationViews
+import React, { Component } from 'react';
+import {Route} from "react-router-dom";
+import Home from './components/home/Home.js'
+class ApplicationViews extends Component {
+    render() {
+        return (
+            <React.Fragment>
+                <Route exact path="/" render={(props) => {
+                    return <Home />
+                }} />
+            </React.Fragment>
+        )
+    }
+}
+export default ApplicationViews;

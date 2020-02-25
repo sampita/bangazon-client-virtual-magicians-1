@@ -1,3 +1,5 @@
+// Author: this reders the home page where we plan to inster the Location feature and welcome screen
+
 import React, { Component } from 'react'
 // import './Home.css'
 

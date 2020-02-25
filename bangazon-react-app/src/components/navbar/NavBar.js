@@ -1,3 +1,6 @@
+// Author: Sam Pita
+// Purpose: This file manages the user authentication, registration, login, and logout functions.
+
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import './NavBar.css';

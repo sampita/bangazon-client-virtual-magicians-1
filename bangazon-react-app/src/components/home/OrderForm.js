@@ -7,6 +7,9 @@ class SellForm extends Component {
       this.state = {
         name: '',
         price: null,
+        description: '',
+        quantity: '',
+        price: '',
         errormessage: ''
       };
     }
@@ -30,33 +33,38 @@ class SellForm extends Component {
         <input
           type='text'
           name='name'
+        //   value={product.name}
           onChange={this.myChangeHandler}
         />
         <p>Price:</p>
-        <input
+        $<input
           type='text'
           name='price'
+          //   value={product.price}
           onChange={this.myChangeHandler}
         />
+        {this.state.errormessage}
         <p>Description:</p>
         <input
           type='text'
           name='description'
+          //   value={product.description}
           onChange={this.myChangeHandler}
         />
         <p>Quantity:</p>
         <input
-          type='text'
+          type='number'
           name='quantity'
+          //   value={product.quantity}
           onChange={this.myChangeHandler}
         />
         <p>Looking for a local pickup? Enter your city!</p>
         <input
           type='text'
           name='location'
+          //   value={product.location}
           onChange={this.myChangeHandler}
         />
-        {this.state.errormessage}
         </form>
       );
     }

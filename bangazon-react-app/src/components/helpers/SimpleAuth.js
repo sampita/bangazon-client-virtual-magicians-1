@@ -6,7 +6,7 @@ const isAuthenticated = () => {
 }
 
 const register = (userInfo) => {
-    return fetch("http://localhost:8000/register", {
+    return fetch("http://localhost:8000/register/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -42,3 +42,5 @@ const login = (credentials) => {
 const logout = () => {
     sessionStorage.removeItem("bangazon_token")
 }
+
+export { isAuthenticated, login, register, logout }

@@ -1,12 +1,39 @@
-import React, { Component } from 'react';
+// Author: this reders the home page where we plan to inster the Location feature and welcome screen
+
+import React, { Component } from 'react'
+// import './Home.css'
+
 
 class Home extends Component {
-    
-render() {
+  state = {
+    products: []
+  }
+
+//   Eventually we might need this
+//   componentDidMount() {
+
+
+//         })}
+
+
+  render() {
     return (
-        `?{Home Page}`
+      <>
+        <div id="products" className="all-products-container">
+          <h1>This will contain our products list</h1>
+        </div>
+        <br />
+
+        <section id="product-location">
+          <div>
+            <h2>This is home</h2>
+          </div>
+        </section>
+
+        <footer> Bangazooon! © 2020</footer>
+      </>
     )
   }
 }
 
-export default Home;
+export default Home

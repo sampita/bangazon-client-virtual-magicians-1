@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import './NavBar.css';
+import { isAuthenticated, logout } from "../helpers/SimpleAuth"
 
 class NavBar extends Component {
 
@@ -19,17 +20,14 @@ class NavBar extends Component {
             <header>
                 <nav>
                     <ul className="navbar flex">
-                        {/* { */}
-                        {/* (this.props.user) ? */}
+                        {isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/sell">Sell</Link></li>
-                            {/* : null} */}
+                            : null}
                         <li className="nav"><Link className="nav-link" to="/buy">Buy</Link></li>
                         <input type="text" placeholder="Search product keywords..."></input>
-                        {/* Ternary statement */}
-                        {/* { */}
-                        {/* (this.props.user) ? */}
+                        {isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/mycart">Shopping Cart</Link></li>
-                            {/* : null} */}
+                            : null}
                         <li className="nav"><Link className="nav-link" to="/myprofile">My Profile</Link></li>
                     </ul>
                 </nav>

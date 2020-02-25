@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
 import Home from './components/home/Home.js'
 import SellForm from './components/home/OrderForm'
 import Register from './components/auth/register.js';
@@ -19,7 +19,11 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/sell" render={(props) => {
-                    return <SellForm />
+                    if (this.props.user) {
+                        return <SellForm />
+                        } else {
+                            return <Redirect to="/login" />
+                        }
                 }} />
             </React.Fragment>
         )

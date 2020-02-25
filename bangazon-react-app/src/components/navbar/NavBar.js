@@ -26,9 +26,12 @@ class NavBar extends Component {
                         <li className="nav"><Link className="nav-link" to="/buy">Buy</Link></li>
                         <input type="text" placeholder="Search product keywords..."></input>
                         {isAuthenticated() ?
+                            <>
                             <li className="nav"><Link className="nav-link" to="/mycart">Shopping Cart</Link></li>
-                            : null}
-                        <li className="nav"><Link className="nav-link" to="/myprofile">My Profile</Link></li>
+                            <li className="nav"><Link className="nav-link" to="/myprofile">My Profile</Link></li>
+                            </>
+                            : <li className="nav"><Link className="nav-link" to="/login">Login</Link></li>
+                            }
                     </ul>
                 </nav>
             </header>

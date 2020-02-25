@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Route} from "react-router-dom";
 import Home from './components/home/Home.js'
+
+
 class ApplicationViews extends Component {
     render() {
         return (
@@ -12,4 +14,5 @@ class ApplicationViews extends Component {
         )
     }
 }
+
 export default ApplicationViews;

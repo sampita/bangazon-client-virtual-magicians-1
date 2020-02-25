@@ -13,6 +13,14 @@ class SellForm extends Component {
         errormessage: ''
       };
     }
+    mySubmitHandler = (event) => {
+        event.preventDefault();
+        let price = this.state.price;
+        if (!Number(price)) {
+          alert("Your price must be a number");
+        }
+    }
+
     myChangeHandler = (event) => {
       let nam = event.target.name;
       let val = event.target.value;
@@ -28,44 +36,48 @@ class SellForm extends Component {
     render() {
       return (
         <form>
-        <h1>Sell your stuff form</h1>
-        <p>Product name:</p>
-        <input
-          type='text'
-          name='name'
-        //   value={product.name}
-          onChange={this.myChangeHandler}
-        />
-        <p>Price:</p>
-        $<input
-          type='text'
-          name='price'
-          //   value={product.price}
-          onChange={this.myChangeHandler}
-        />
-        {this.state.errormessage}
-        <p>Description:</p>
-        <input
-          type='text'
-          name='description'
-          //   value={product.description}
-          onChange={this.myChangeHandler}
-        />
-        <p>Quantity:</p>
-        <input
-          type='number'
-          name='quantity'
-          //   value={product.quantity}
-          onChange={this.myChangeHandler}
-        />
-        <p>Looking for a local pickup? Enter your city!</p>
-        <input
-          type='text'
-          name='location'
-          //   value={product.location}
-          onChange={this.myChangeHandler}
-        />
+            <h1>Sell your stuff form</h1>
+            <p>Product name:</p>
+            <input
+            type='text'
+            name='name'
+            //   value={product.name}
+            onChange={this.myChangeHandler}
+            />
+            <p>Price:</p>
+            $<input
+            type='text'
+            name='price'
+            //   value={product.price}
+            onChange={this.myChangeHandler}
+            />
+            {this.state.errormessage}
+            <p>Description:</p>
+            <input
+            type='text'
+            name='description'
+            //   value={product.description}
+            onChange={this.myChangeHandler}
+            />
+            <p>Quantity:</p>
+            <input
+            type='number'
+            name='quantity'
+            //   value={product.quantity}
+            onChange={this.myChangeHandler}
+            />
+            <p>Looking for a local pickup? Enter your city!</p>
+            <input
+            type='text'
+            name='location'
+            //   value={product.location}
+            onChange={this.myChangeHandler}
+            />
+            <br/>
+            <br/>
+            <input type='submit' />
         </form>
+
       );
     }
   }  

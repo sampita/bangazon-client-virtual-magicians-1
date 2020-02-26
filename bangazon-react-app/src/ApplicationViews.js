@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route, Redirect} from "react-router-dom";
 import Home from './components/home/Home.js'
 import SellForm from './components/home/OrderForm'
+import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 
 
@@ -27,6 +28,10 @@ class ApplicationViews extends Component {
                         } else {
                             return <Redirect to="/login" />
                         }
+                }} />
+
+                <Route exact path="/location" render={(props) => {
+                    return <Location />
                 }} />
             </React.Fragment>
         )

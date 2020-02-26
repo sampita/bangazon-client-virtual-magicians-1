@@ -1,0 +1,24 @@
+#user_icon {
+    width: 8em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* flexbox container  */
+#profileContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* elements within flexbox */
+.flexEl {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.profileButton {
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: .8em;
+}

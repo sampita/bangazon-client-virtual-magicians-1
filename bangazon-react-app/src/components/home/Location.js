@@ -30,10 +30,12 @@ class Location extends Component {
     });
   }
 
+//   Updates state 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
 
+//   Currently a pop-up that 
   handleSubmit(event) {
     alert("You chose: " + this.state.value);
     event.preventDefault();

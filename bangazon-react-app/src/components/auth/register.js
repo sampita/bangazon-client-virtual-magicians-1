@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { withRouter } from "react-router-dom"
-import { register } from "../helpers/SimpleAuth"
 
 class Register extends Component {
 
@@ -32,11 +31,12 @@ class Register extends Component {
         }
 
         // Makes a fetch call with newUser object as the body of the POST request
-        register(newUser)
+        this.props.registerUser(newUser)
             .then(() => this.props.history.push("/"))
     }
 
     render() {
+        console.log("register props", this.props)
         return (
             <form className="form--login" onSubmit={this.handleRegister}>
                 <h1>Create Account</h1>

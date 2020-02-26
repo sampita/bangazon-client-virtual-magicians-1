@@ -4,28 +4,22 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import './NavBar.css';
-import { isAuthenticated, logout } from "../helpers/SimpleAuth"
 
 class NavBar extends Component {
 
-    handleLogout = () => {
-        //clears user from localStorage and redirects to home page
-        this.props.clearUser();
-        this.props.history.push('/');
-    }
-
     render() {
+        console.log("Navbar props", this.props)
 
         return (
             <header>
                 <nav>
                     <ul className="navbar flex">
-                        {isAuthenticated() ?
+                        {this.props.isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/sell">Sell</Link></li>
                             : null}
                         <li className="nav"><Link className="nav-link" to="/buy">Buy</Link></li>
                         <input type="text" placeholder="Search product keywords..."></input>
-                        {isAuthenticated() ?
+                        {this.props.isAuthenticated() ?
                             <>
                             <li className="nav"><Link className="nav-link" to="/mycart">Shopping Cart</Link></li>
                             <li className="nav"><Link className="nav-link" to="/myprofile">My Profile</Link></li>

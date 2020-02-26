@@ -11,5 +11,11 @@ export default {
     return fetch(`${remoteURL}/${endpoint}`, {
       method: "GET"
     }).then(result => result.json());
+  },
+  
+  get(endpoint, id) {
+    return fetch(`${remoteURL}/${endpoint}/${id}`, {
+      method: "GET"
+    }).then(result => result.json());
   }
 };

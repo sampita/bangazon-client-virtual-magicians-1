@@ -15,7 +15,10 @@ class SellForm extends Component {
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
-        
+        {
+            name=this.state.name,
+            price=this.state.
+        }
         let price = this.state.price;
         if (!Number(price)) {
           alert("Your price must be a number");

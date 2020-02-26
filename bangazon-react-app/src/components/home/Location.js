@@ -35,7 +35,7 @@ class Location extends Component {
     this.setState({ value: event.target.value });
   }
 
-//   Currently a pop-up that 
+//   Currently a pop-up that shows which location was chosen. Will route to a ProductList later
   handleSubmit(event) {
     alert("You chose: " + this.state.value);
     event.preventDefault();

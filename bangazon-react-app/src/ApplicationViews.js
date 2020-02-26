@@ -9,7 +9,6 @@ import Register from './components/auth/register.js';
 
 class ApplicationViews extends Component {
     render() {
-        console.log("AppViews props", this.props)
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {

@@ -65,7 +65,6 @@ class Bangazon extends Component {
   }
 
   render() {
-    console.log("App.js state", this.state)
     return (
     <>
       <NavBar 

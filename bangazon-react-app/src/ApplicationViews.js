@@ -5,8 +5,10 @@ import SellForm from './components/home/OrderForm'
 import Register from './components/auth/register.js';
 
 
+
 class ApplicationViews extends Component {
     render() {
+        console.log("AppViews props", this.props)
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
@@ -15,7 +17,8 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/register" render={(props) => {
                     return <Register 
-                                {...props}/>
+                                {...props}
+                                {...this.props}/>
                 }} />
 
                 <Route exact path="/sell" render={(props) => {

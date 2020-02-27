@@ -38,7 +38,7 @@ class SellForm extends Component {
                         
             APIManager.post('products', newProduct)
             .then(() => {
-                debugger
+                // debugger
                 this.props.history.push(`/`)
                 })
         }

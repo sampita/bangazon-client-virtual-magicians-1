@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import ApiManager from '.../modules/ApiManager.js'
+import APIManager from '../../modules/APIManager'
 
 
 class SellForm extends Component {
@@ -21,32 +21,32 @@ class SellForm extends Component {
         this.setState(stateToChange)
     }
 
-    // componentDidMount() {
-    //     ApiManager.get('producttypes')
-    //     .then(producttypes => this.setState({producttypes}))
-    // }
+    componentDidMount() {
+        APIManager.get('producttypes')
+        .then(producttypes => this.setState({producttypes}))
+    }
 
-    // handleSubmit = event => {
-    //     event.preventDefault()   
-    //     if (!event.target.checkValidity()){
-    //         return alert('Complete all fields')
-    //     }else{
-    //         const newProduct = {
-    //             name: this.state.name,
-    //             price: this.state.price,
-    //             description: this.state.description,
-    //             quantity: this.state.quantity,
-    //             location: this.state.location,
-    //             image_path: this.state.imagePath,
-    //             product_type_id: this.state.productTypeId
-    //         }
+    handleSubmit = event => {
+        event.preventDefault()   
+        if (!event.target.checkValidity()){
+            return alert('Complete all fields')
+        }else{
+            const newProduct = {
+                name: this.state.name,
+                price: this.state.price,
+                description: this.state.description,
+                quantity: this.state.quantity,
+                location: this.state.location,
+                image_path: this.state.imagePath,
+                product_type_id: this.state.productTypeId
+            }
                         
-    //         ApiManager.post('products', newProduct)
-    //             .then((newProduct) => {
-    //             this.props.history.push(`/product/${newProduct.id}`)
-    //             })
-    //     }
-    // }
+            APIManager.post('products', newProduct)
+                .then((newProduct) => {
+                this.props.history.push(`/`)
+                })
+        }
+    }
 
     render() {
         return (

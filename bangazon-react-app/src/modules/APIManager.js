@@ -17,5 +17,12 @@ export default {
     return fetch(`${remoteURL}/${endpoint}/${id}`, {
       method: "GET"
     }).then(result => result.json());
+  },
+
+  post : function(endpoint) {
+    return fetch(`${remoteURL}/${endpoint}`, {
+      method: "POST",
+    })
+    .then(response => response.json())
   }
 };

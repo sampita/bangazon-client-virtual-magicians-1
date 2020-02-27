@@ -8,8 +8,6 @@ import './NavBar.css';
 class NavBar extends Component {
 
     render() {
-        console.log("Navbar props", this.props)
-
         return (
             <header>
                 <nav id="navbar">

@@ -40,7 +40,9 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/paymentform" render={(props) => {
-                    return <UserPaymentForm />
+                    return <UserPaymentForm 
+                                {...props}
+                                />
                 }} />
             </React.Fragment>
         )

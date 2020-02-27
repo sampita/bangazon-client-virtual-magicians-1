@@ -31,5 +31,16 @@ export default {
         "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
       }
     }).then(result => result.json());
-  }
-};
+  },
+
+  post(endpoint, newObject) {
+    return fetch(`${remoteURL}/${endpoint}`, {
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
+      },
+      "body": JSON.stringify(newObject)
+      })
+      .then(response => response.json())}
+}

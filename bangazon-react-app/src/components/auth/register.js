@@ -36,7 +36,6 @@ class Register extends Component {
     }
 
     render() {
-        console.log("register props", this.props)
         return (
             <form className="form--login" onSubmit={this.handleRegister}>
                 <h1>Create Account</h1>

@@ -7,7 +7,7 @@ import ApplicationViews from './ApplicationViews.js'
 import NavBar from './components/navbar/NavBar.js'
 
 class Bangazon extends Component {
-  
+
   state = {
     user: false
   }
@@ -19,43 +19,46 @@ class Bangazon extends Component {
   registerUser = (userInfo) => {
     //creates user, saves user token to sessionStorage, and sets state of user to True
     return fetch("http://localhost:8000/register/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(userInfo)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(userInfo)
     })
-        .then(res => res.json())
-        .then(res => {
-            if ("token" in res) {
-                sessionStorage.setItem("bangazon_token", res.token)
-            }
-        })
-        .then(() => this.setState({
-            user: this.isAuthenticated()
-        }))
-}
+      .then(res => res.json())
+      .then(res => {
+        console.log("res", res)
+        if ("token" in res) {
+          sessionStorage.setItem("bangazon_token", res.token)
+        }
+      })
+      .then(() => this.setState({
+        user: this.isAuthenticated()
+      }))
+  }
 
   loginUser = (credentials) => {
     //logs in user, saves user token to sessionStorage, and sets state of user to True
     return fetch("http://localhost:8000/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(credentials)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(credentials)
     })
-        .then(res => res.json())
-        .then(res => {
-            if ("valid" in res && res.valid && "token" in res) {
-                sessionStorage.setItem("bangazon_token", res.token)
-            }
-        })
-        .then(() => this.setState({
-            user: this.isAuthenticated()
-        }))
+      .then(res => res.json())
+      .then(res => {
+        if ("valid" in res && res.valid && "token" in res) {
+          console.log("res", res)
+          sessionStorage.setItem("bangazon_token", res.token)
+          sessionStorage.setItem("user_id", res.user)
+        }
+      })
+      .then(() => this.setState({
+        user: this.isAuthenticated()
+      }))
   }
 
   logoutUser = () => {
@@ -65,20 +68,20 @@ class Bangazon extends Component {
   }
 
   render() {
-    console.log("App.js state", this.state)
     return (
-    <>
-      <NavBar 
-        isAuthenticated={this.isAuthenticated}
+      <>
+        <NavBar
+          isAuthenticated={this.isAuthenticated}
         />
-      <ApplicationViews 
-        isAuthenticated={this.isAuthenticated}
-        registerUser={this.registerUser}
-        loginUser={this.loginUser}
-        logoutUser={this.logoutUser}
+        <ApplicationViews
+          isAuthenticated={this.isAuthenticated}
+          registerUser={this.registerUser}
+          loginUser={this.loginUser}
+          logoutUser={this.logoutUser}
         />
-    </>
-  );
-}}
+      </>
+    );
+  }
+}
 
 export default Bangazon;

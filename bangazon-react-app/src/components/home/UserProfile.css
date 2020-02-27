@@ -2,6 +2,7 @@
     width: 8em;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1em;
 }
 
 /* flexbox container  */
@@ -15,10 +16,16 @@
 .flexEl {
     flex-basis: 100%;
     text-align: center;
+    margin-block-start: .2em;
+    margin-block-end: .2em;
 }
 
 .profileButton {
     margin-left: 40%;
     margin-right: 40%;
     padding: .8em;
+}
+
+.profileButton:first-of-type {
+    margin-top: 1em;
 }

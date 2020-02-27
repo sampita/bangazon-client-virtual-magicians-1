@@ -27,7 +27,7 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/sell" render={(props) => {
-                    if (this.props.user) {
+                    if (this.props.isAuthenticated()) {
                         return <SellForm />
                         } else {
                             return <Redirect to="/login" />

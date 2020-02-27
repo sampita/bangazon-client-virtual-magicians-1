@@ -1,8 +1,27 @@
+.navbar {
+    background-color: #4b5f83;
+    padding: .5em;
+}
+
 .flex {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 li.nav {
     list-style: none outside none;
+}
+
+a.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+a.nav-link:hover {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
 }

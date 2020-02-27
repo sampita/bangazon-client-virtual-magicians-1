@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import user_icon from '../../images/user_icon.png'
 import './UserProfile.css'
 import APIManager from '../../modules/APIManager'
@@ -37,7 +38,7 @@ class UserProfile extends Component {
                     <p className="flexEl">{this.state.first_name} {this.state.last_name}</p>
                     <p className="flexEl">Member since {this.state.date_joined}</p>
                     <button className="flexEl profileButton">My Orders</button>
-                    <button className="flexEl profileButton">Add/Edit Payment Types</button>
+                    <button className="flexEl profileButton"><Link to="/paymentform">Add/Edit Payment Types</Link></button>
                 </main>
             </>
         )

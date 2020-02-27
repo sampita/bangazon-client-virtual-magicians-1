@@ -12,7 +12,7 @@ class NavBar extends Component {
 
         return (
             <header>
-                <nav>
+                <nav id="navbar">
                     <ul className="navbar flex">
                         {this.props.isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/sell">Sell</Link></li>

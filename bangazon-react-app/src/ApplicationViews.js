@@ -5,6 +5,7 @@ import SellForm from './components/home/OrderForm'
 import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
+import UserPaymentForm from './components/home/UserPaymentForm.js';
 
 
 
@@ -36,6 +37,10 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/location" render={(props) => {
                     return <Location />
+                }} />
+
+                <Route exact path="/paymentform" render={(props) => {
+                    return <UserPaymentForm />
                 }} />
             </React.Fragment>
         )

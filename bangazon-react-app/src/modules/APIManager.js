@@ -37,10 +37,12 @@ export default {
     return fetch(`${remoteURL}/${endpoint}`, {
       "method": "POST",
       "headers": {
+        "Content-Type": "application/json",
         "Accept": "application/json",
         "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
       },
       "body": JSON.stringify(newObject)
       })
-      .then(response => response.json())}
+      .then(response => response.json())
+    }
 }

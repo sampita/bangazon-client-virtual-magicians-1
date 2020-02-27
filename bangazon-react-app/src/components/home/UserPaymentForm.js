@@ -24,8 +24,8 @@ class UserPaymentForm extends Component {
         const newPaymentType = {
             "merchant_name": this.state.merchant_name,
             "acct_number": this.state.acct_number,
-            "expiration_date": this.state.expiration_date
-            // "created_at": Date.now()
+            "expiration_date": this.state.expiration_date,
+            "created_at": Date.now()
         }
 
         // Makes a fetch call with newUser object as the body of the POST request

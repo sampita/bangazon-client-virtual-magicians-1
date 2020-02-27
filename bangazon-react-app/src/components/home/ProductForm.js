@@ -21,11 +21,6 @@ class SellForm extends Component {
         this.setState(stateToChange)
     }
 
-    componentDidMount() {
-        APIManager.get('producttypes')
-        .then(producttypes => this.setState({producttypes}))
-    }
-
     handleSubmit = event => {
         event.preventDefault()   
         if (!event.target.checkValidity()){
@@ -42,7 +37,8 @@ class SellForm extends Component {
             }
                         
             APIManager.post('products', newProduct)
-                .then((newProduct) => {
+            .then(() => {
+                debugger
                 this.props.history.push(`/`)
                 })
         }
@@ -111,15 +107,6 @@ class SellForm extends Component {
                         type= "text" 
                         onChange={this.handleFieldChange} 
                         required/>
-                    </div>
-                    <div>
-                        
-                        <label htmlFor="productTypeList">Product Type</label>
-                        <select onChange={this.handleFieldChange}id="productTypeId">
-                            {this.state.producttypes.map(type => 
-                                <option key={type.id} value={type.id}>{type.name}</option>
-                            )}
-                        </select>
                     </div>
                     <button>Submit</button>
                 </form>

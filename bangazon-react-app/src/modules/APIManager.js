@@ -19,10 +19,17 @@ export default {
     }).then(result => result.json());
   },
 
-  post : function(endpoint) {
+  post : function(endpoint, object) {
     return fetch(`${remoteURL}/${endpoint}`, {
       method: "POST",
-    })
-    .then(response => response.json())
-  }
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
+        },
+        body: JSON.stringify(object)
+      })
+      .then(response => response.json())
+    }
 };
+

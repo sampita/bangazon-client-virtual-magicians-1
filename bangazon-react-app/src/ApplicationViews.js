@@ -23,7 +23,8 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/sell" render={(props) => {
-                        return <SellForm />
+                    return <SellForm 
+                                {...props}/>
                 }} />
 
                 <Route exact path="/location" render={(props) => {

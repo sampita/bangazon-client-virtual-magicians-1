@@ -8,16 +8,35 @@ class UserPaymentForm extends Component {
         products: []
     }
 
-
+    handleInputChange = (evt) => {
+        let stateToChange = {}
+        stateToChange[evt.target.id] = evt.target.value
+        this.setState(stateToChange)
+    }
+    
     render() {
         return (
-            <>
-                <h3 className="pageTitle">Add Payment Type</h3>
-                <section id="product-location">
-                    <div>
-                        <h2>This is home</h2>
-                    </div>
-                </section>
+            <> 
+                <form onSubmit={this.handleRegister}>
+                <h3>Add Payment Type</h3>
+                <fieldset>
+                    <label>Merchant Name</label>
+                    <input onChange={(evt) => this.handleInputChange(evt)}
+                        placeholder="Ex: Visa"
+                        required autoFocus />
+                </fieldset>
+                <fieldset>
+                    <label>Card Number</label>
+                    <input onChange={(evt) => this.handleInputChange(evt)}
+                        placeholder="Ex: 99999999999"
+                        required />
+                </fieldset>
+                <fieldset>
+                    <label>Expiration Date</label>
+                    <input type="date" onChange={(evt) => this.handleInputChange(evt)}
+                        required />
+                </fieldset>
+                </form>
             </>
         )
     }

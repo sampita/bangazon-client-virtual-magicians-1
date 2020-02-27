@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Route, Redirect} from "react-router-dom";
 import Home from './components/home/Home.js'
-import SellForm from './components/home/OrderForm'
+import SellForm from './components/home/ProductForm'
 import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
@@ -29,9 +29,10 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/sell" render={(props) => {
                     if (this.props.isAuthenticated()) {
-                        return <SellForm />
+                        return <SellForm 
+                            {...props}/>
                         } else {
-                            return <Redirect to="/login" />
+                            return <Redirect to="/login"/>
                         }
                 }} />
 

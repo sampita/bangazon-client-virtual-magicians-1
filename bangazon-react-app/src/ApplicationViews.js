@@ -4,12 +4,12 @@ import Home from './components/home/Home.js'
 import SellForm from './components/home/OrderForm'
 import Location from './components/home/Location'
 import Register from './components/auth/register.js';
+import UserProfile from './components/home/UserProfile.js';
 
 
 
 class ApplicationViews extends Component {
     render() {
-        console.log("AppViews props", this.props)
         return (
             <React.Fragment>
                 <Route exact path="/" render={(props) => {
@@ -22,8 +22,12 @@ class ApplicationViews extends Component {
                                 {...this.props}/>
                 }} />
 
+                <Route exact path="/myprofile" render={(props) => {
+                    return <UserProfile />
+                }} />
+
                 <Route exact path="/sell" render={(props) => {
-                    if (this.props.user) {
+                    if (this.props.isAuthenticated()) {
                         return <SellForm />
                         } else {
                             return <Redirect to="/login" />

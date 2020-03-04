@@ -15,6 +15,15 @@ class SellForm extends Component {
         producttypes: []
     }
 
+    componentDidMount() {
+        APIManager.getAll('producttypes')
+        .then (producttypes => 
+            {
+            console.log('hehhehe', producttypes)
+                this.setState({producttypes})
+        })
+    }
+
     handleFieldChange = evt => {
         const stateToChange = {}
         stateToChange[evt.target.id] = evt.target.value
@@ -67,6 +76,14 @@ class SellForm extends Component {
                          type= "number" 
                          onChange={this.handleFieldChange} 
                          required />
+                    </div>
+                    <div>
+                        <label htmlFor="productTypeList">Product Type</label>
+                        <select onChange={this.handleFieldChange} id="productTypeId">
+                            {this.state.producttypes.map(type => 
+                                <option key={type.id} value={type.id}>{type.name}</option>
+                            )}
+                        </select>
                     </div>
                     <div>
                         <label 

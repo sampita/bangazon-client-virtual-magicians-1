@@ -30,7 +30,7 @@ class UserProfile extends Component {
     }
 
     render() {
-        console.log("user profile render", sessionStorage.getItem("bangazon_token"))
+        console.log("user profile render", this.state)
         return (
             <>
                 <h3 className="pageTitle">My Profile</h3>

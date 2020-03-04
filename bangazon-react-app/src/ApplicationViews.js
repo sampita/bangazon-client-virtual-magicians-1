@@ -6,6 +6,7 @@ import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
 import UserPaymentForm from './components/home/UserPaymentForm.js';
+import Login from './components/auth/login.js';
 
 
 
@@ -23,11 +24,21 @@ class ApplicationViews extends Component {
                                 {...this.props}/>
                 }} />
 
-                <Route exact path="/myprofile" render={(props) => {
-                    console.log("app views profile", props, this.props)
-                    return <UserProfile
+                <Route exact path="/login" render={(props) => {
+                    return <Login
                                 {...props}
-                                {...this.props} />
+                                {...this.props}/>
+                }} />
+
+                <Route exact path="/myprofile" render={(props) => {
+                    if (this.props.isAuthenticated()) {
+                        return <UserProfile
+                                    {...props}
+                                    {...this.props}
+                         /> 
+                        } else {
+                            return <Redirect to="/login"/>
+                        }
                 }} />
 
                 <Route exact path="/sell" render={(props) => {

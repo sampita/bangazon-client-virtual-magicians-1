@@ -24,7 +24,10 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/myprofile" render={(props) => {
-                    return <UserProfile />
+                    console.log("app views profile", props, this.props)
+                    return <UserProfile
+                                {...props}
+                                {...this.props} />
                 }} />
 
                 <Route exact path="/sell" render={(props) => {

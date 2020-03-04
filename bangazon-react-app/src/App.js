@@ -40,7 +40,7 @@ class Bangazon extends Component {
 
   loginUser = (credentials) => {
     //logs in user, saves user token to sessionStorage, and sets state of user to True
-    return fetch("http://localhost:8000/login", {
+    return fetch("http://localhost:8000/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,12 +53,12 @@ class Bangazon extends Component {
         if ("valid" in res && res.valid && "token" in res) {
           console.log("res", res)
           sessionStorage.setItem("bangazon_token", res.token)
-          sessionStorage.setItem("user_id", res.user)
         }
+        else window.alert('Incorrect username or password. Please try again.')
       })
-      .then(() => this.setState({
-        user: this.isAuthenticated()
-      }))
+      // .then(() => this.setState({
+      //   user: this.isAuthenticated()
+      // }))
   }
 
   logoutUser = () => {
@@ -68,6 +68,7 @@ class Bangazon extends Component {
   }
 
   render() {
+    console.log("app.js component", this.props)
     return (
       <>
         <NavBar

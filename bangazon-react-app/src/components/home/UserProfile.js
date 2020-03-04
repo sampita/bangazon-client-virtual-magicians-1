@@ -17,6 +17,7 @@ class UserProfile extends Component {
         //get User name, email, payment info
         APIManager.getAll("customers")
         .then((customer) => {
+            console.log("cdm", customer)
             this.setState({
                 username: customer[0].user.username,
                 first_name: customer[0].user.first_name,
@@ -29,6 +30,7 @@ class UserProfile extends Component {
     }
 
     render() {
+        console.log("user profile render", this.state)
         return (
             <>
                 <h3 className="pageTitle">My Profile</h3>

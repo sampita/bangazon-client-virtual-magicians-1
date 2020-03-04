@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { withRouter } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 class Login extends Component {
 
@@ -29,6 +29,7 @@ class Login extends Component {
     render() {
         console.log("login props", this.props)
         return (
+            <>
             <form className="form--login" onSubmit={this.handleLogin}>
                 <h1>Login</h1>
                 <fieldset>
@@ -55,6 +56,8 @@ class Login extends Component {
                     </button>
                 </fieldset>
             </form>
+            <p><Link to="/register">or create an account</Link></p>
+            </>
         )
     }
 }

@@ -32,7 +32,10 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/myprofile" render={(props) => {
                     if (this.props.isAuthenticated()) {
-                        return <UserProfile /> 
+                        return <UserProfile
+                                    {...props}
+                                    {...this.props}
+                         /> 
                         } else {
                             return <Redirect to="/login"/>
                         }

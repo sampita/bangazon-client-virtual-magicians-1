@@ -30,8 +30,8 @@ class UserPaymentForm extends Component {
 
         // Makes a fetch call with newUser object as the body of the POST request
         APIManager.post("payment_types", newPaymentType)
-            .then((response) => console.log("response", response))
-            // .then(() => this.props.history.push("/myprofile"))
+        .then(() => this.props.history.push("/myprofile"))
+            // .then((response) => console.log("response", response))
     }
 
     render() {

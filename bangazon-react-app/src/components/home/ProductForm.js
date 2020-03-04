@@ -19,7 +19,6 @@ class SellForm extends Component {
         APIManager.getAll('producttypes')
         .then (producttypes => 
             {
-            console.log('hehhehe', producttypes)
                 this.setState({producttypes})
         })
     }

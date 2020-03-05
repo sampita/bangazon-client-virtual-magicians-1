@@ -32,7 +32,7 @@ class ProductDetail extends Component {
                     <div>
                         <div>
                             <div>
-                                <a href={`/product/${id}`}>
+                                <a>
                                     {name}
                                 </a>
                             </div>

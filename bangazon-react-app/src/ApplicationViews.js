@@ -6,6 +6,7 @@ import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
 import UserPaymentForm from './components/home/UserPaymentForm.js';
+import UserPaymentList from './components/home/UserPaymentList.js';
 import Login from './components/auth/login.js';
 
 
@@ -59,6 +60,13 @@ class ApplicationViews extends Component {
                                 {...props}
                                 />
                 }} />
+
+                <Route exact path="/paymentlist" render={(props) => {
+                    return <UserPaymentList
+                                {...props}
+                                />
+                }}  />
+                
             </React.Fragment>
         )
     }

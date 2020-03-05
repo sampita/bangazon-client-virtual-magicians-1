@@ -41,6 +41,7 @@ class UserProfile extends Component {
                     <p className="flexEl">Member since {this.state.date_joined}</p>
                     <button className="flexEl profileButton">My Orders</button>
                     <button className="flexEl profileButton"><Link to="/paymentform">Add/Edit Payment Types</Link></button>
+                    <button className="flexEl profileButton"><Link to="/paymentlist">See Payment Types</Link></button>
                 </main>
             </>
         )

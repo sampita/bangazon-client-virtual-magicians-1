@@ -10,7 +10,7 @@ export default {
         "Accept": "application/json",
         "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
       }
-    }).then(result => result.json());
+    });
   },
   
   getAll(endpoint) {

@@ -55,8 +55,8 @@ class SellForm extends Component {
                 }
 
                 APIManager.post('products', newProduct)
-                    .then(() => {
-                        this.props.history.push(`/`)
+                    .then((response) => {
+                        this.props.history.push(`/products/${response.id}`)
                     })
             }
         }

@@ -52,7 +52,7 @@ class ApplicationViews extends Component {
                         }
                 }} />
 
-                <Route exact path="/product/:productId(\d+)" render={props => {
+                <Route exact path="/products/:productId(\d+)" render={props => {
                     return <ProductDetail 
                                 {...props} 
                                 // addToOrder= {this.props.addToOrder}

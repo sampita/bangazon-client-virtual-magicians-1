@@ -16,7 +16,7 @@ class SellForm extends Component {
     }
 
     componentDidMount() {
-        APIManager.getAll('producttypes')
+        APIManager.getAll('product_types')
         .then (producttypes => 
             {
                 this.setState({producttypes})

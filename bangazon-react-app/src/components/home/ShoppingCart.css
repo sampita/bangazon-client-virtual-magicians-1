@@ -1,0 +1,15 @@
+#cartContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flexItem {
+    flex-basis: 100%;
+}
+
+#completeOrder {
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: .8em;
+}

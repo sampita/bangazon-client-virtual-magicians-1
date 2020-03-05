@@ -8,6 +8,7 @@ import UserProfile from './components/home/UserProfile.js';
 import UserPaymentForm from './components/home/UserPaymentForm.js';
 import UserPaymentList from './components/home/UserPaymentList.js';
 import Login from './components/auth/login.js';
+import ShoppingCart from './components/home/ShoppingCart.js';
 
 
 
@@ -35,8 +36,7 @@ class ApplicationViews extends Component {
                     if (this.props.isAuthenticated()) {
                         return <UserProfile
                                     {...props}
-                                    {...this.props}
-                         /> 
+                                    {...this.props}/> 
                         } else {
                             return <Redirect to="/login"/>
                         }
@@ -66,6 +66,15 @@ class ApplicationViews extends Component {
                                 {...props}
                                 />
                 }}  />
+
+                <Route exact path="/mycart" render={(props) => {
+                    if (this.props.isAuthenticated()) {
+                        return <ShoppingCart
+                            {...props}/>
+                        } else {
+                            return <Redirect to="/login"/>
+                        }
+                }} />
                 
             </React.Fragment>
         )

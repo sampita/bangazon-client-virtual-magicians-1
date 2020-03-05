@@ -17,117 +17,126 @@ class SellForm extends Component {
 
     componentDidMount() {
         APIManager.getAll('product_types')
-        .then (producttypes => 
-            {
-                this.setState({producttypes})
-        })
+            .then(producttypes => {
+                this.setState({ producttypes })
+            })
     }
 
     handleFieldChange = evt => {
-        const stateToChange = {}
-        stateToChange[evt.target.id] = evt.target.value
-        this.setState(stateToChange)
-    }
+        if (evt.target.id === "price") {
+            if (evt.target.value > 0 && evt.target.value <= 10000) {
 
-    handleSubmit = event => {
-        event.preventDefault()   
-        if (!event.target.checkValidity()){
-            return alert('Complete all fields')
-        }else{
-            const newProduct = {
-                name: this.state.name,
-                price: this.state.price,
-                description: this.state.description,
-                quantity: this.state.quantity,
-                location: this.state.location,
-                image_path: this.state.imagePath,
-                product_type_id: this.state.productTypeId
+                const stateToChange = {}
+                stateToChange[evt.target.id] = evt.target.value
+                this.setState(stateToChange)
+            } else {
+                alert("Amount needs to be between 1 to 10,000")
+                evt.target.value = ""
             }
-                        
-            APIManager.post('products', newProduct)
-            .then(() => {
-                // debugger
-                this.props.history.push(`/`)
-                })
+        } else {
+            const stateToChange = {}
+            stateToChange[evt.target.id] = evt.target.value
+            this.setState(stateToChange)
+        }}
+
+        handleSubmit = event => {
+            event.preventDefault()
+            if (!event.target.checkValidity()) {
+                return alert('Complete all fields')
+            } else {
+                const newProduct = {
+                    name: this.state.name,
+                    price: this.state.price,
+                    description: this.state.description,
+                    quantity: this.state.quantity,
+                    location: this.state.location,
+                    image_path: this.state.imagePath,
+                    product_type_id: this.state.productTypeId
+                }
+
+                APIManager.post('products', newProduct)
+                    .then(() => {
+                        this.props.history.push(`/`)
+                    })
+            }
+        }
+
+        render() {
+            return (
+                <>
+                    <h2>List a Product for Sell</h2>
+                    <form onSubmit={this.handleSubmit} >
+                        <div>
+                            <label
+                                htmlFor="name">Name</label>
+                            <input
+                                id="name"
+                                type="text"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="price">Price
+                        </label>
+                            <input
+                                id="price"
+                                type="number"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <div>
+                            <label htmlFor="productTypeList">Product Type</label>
+                            <select onChange={this.handleFieldChange} id="productTypeId">
+                                {this.state.producttypes.map(type =>
+                                    <option key={type.id} value={type.id}>{type.name}</option>
+                                )}
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="description">Description
+                        </label>
+                            <input
+                                id="description"
+                                type="text"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="quantity">Quantity
+                        </label>
+                            <input
+                                id="quantity"
+                                type="number"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="location">City
+                        </label>
+                            <input
+                                id="location"
+                                type="text"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="imagePath">Image Path
+                        </label>
+                            <input
+                                id="imagePath"
+                                type="text"
+                                onChange={this.handleFieldChange}
+                                required />
+                        </div>
+                        <button>Submit</button>
+                    </form>
+                </>
+            )
         }
     }
-
-    render() {
-        return (
-            <>
-                <h2>List a Product for Sell</h2>
-                <form onSubmit={this.handleSubmit} >
-                    <div>
-                        <label 
-                        htmlFor="name">Name</label>
-                        <input 
-                        id="name" 
-                        type= "text" 
-                        onChange={this.handleFieldChange} 
-                        required />
-                    </div>
-                    <div>
-                        <label 
-                        htmlFor="price">Price
-                        </label>
-                        <input 
-                        id="price"
-                         type= "number" 
-                         onChange={this.handleFieldChange} 
-                         required />
-                    </div>
-                    <div>
-                        <label htmlFor="productTypeList">Product Type</label>
-                        <select onChange={this.handleFieldChange} id="productTypeId">
-                            {this.state.producttypes.map(type => 
-                                <option key={type.id} value={type.id}>{type.name}</option>
-                            )}
-                        </select>
-                    </div>
-                    <div>
-                        <label 
-                        htmlFor="description">Description
-                        </label>
-                        <input 
-                        id="description" 
-                        type= "text" 
-                        onChange={this.handleFieldChange} 
-                        required />
-                    </div>
-                    <div>
-                        <label 
-                        htmlFor="quantity">Quantity
-                        </label>
-                        <input 
-                        id="quantity" 
-                        type= "number" 
-                        onChange={this.handleFieldChange} 
-                        required />
-                    </div>
-                    <div>
-                        <label 
-                        htmlFor="location">City
-                        </label>
-                        <input 
-                        id="location" 
-                        type= "text" 
-                        onChange={this.handleFieldChange} 
-                        required />
-                    </div>
-                    <div>
-                        <label 
-                        htmlFor="imagePath">Image Path
-                        </label>
-                        <input 
-                        id="imagePath" 
-                        type= "text" 
-                        onChange={this.handleFieldChange} 
-                        required/>
-                    </div>
-                    <button>Submit</button>
-                </form>
-            </>
-        )
-    }
-}
-export default SellForm;
+    export default SellForm;

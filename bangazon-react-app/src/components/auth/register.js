@@ -43,7 +43,6 @@ class Register extends Component {
             <form className="form--login" onSubmit={this.handleRegister}>
                 <h1>Create Account</h1>
                 <fieldset>
-                    {/* <label htmlFor="userName"> Username </label> */}
                     <input onChange={(evt) => this.handleInputChange(evt)}
                         id="userName"
                         type="text"
@@ -53,7 +52,6 @@ class Register extends Component {
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="firstName"> First Name </label> */}
                     <input onChange={this.handleInputChange}
                         id="firstName"
                         type="text"
@@ -63,7 +61,6 @@ class Register extends Component {
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="lastName"> Last Name </label> */}
                     <input onChange={this.handleInputChange}
                         id="lastName"
                         type="text"
@@ -93,7 +90,6 @@ class Register extends Component {
                         required />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="inputPassword"> Password </label> */}
                     <input onChange={this.handleInputChange}
                         id="password"
                         type="password"
@@ -103,7 +99,6 @@ class Register extends Component {
                         required />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="verifyPassword"> Verify Password </label> */}
                     <input onChange={this.handleInputChange}
                         id="verifyPassword"
                         type="password"

@@ -22,6 +22,7 @@ class Home extends Component {
 
 
   render() {
+    console.log("home render", this.props)
     return (
       <>
 

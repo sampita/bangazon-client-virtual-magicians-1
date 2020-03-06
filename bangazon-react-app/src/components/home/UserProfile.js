@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import user_icon from '../../images/user_icon.png'
 import './UserProfile.css'
 import APIManager from '../../modules/APIManager'
+import { logoutUser } from '../auth/helpers'
 
 class UserProfile extends Component {
     state = {
@@ -13,11 +14,15 @@ class UserProfile extends Component {
         date_joined: ""
     }
 
+    handleLogout() {
+        logoutUser()
+        this.props.history.push("/")
+    }
+
     componentDidMount() {
         //get User name, email, payment info
         APIManager.getAll("customers")
         .then((customer) => {
-            console.log("cdm", customer)
             this.setState({
                 username: customer[0].user.username,
                 first_name: customer[0].user.first_name,
@@ -26,11 +31,10 @@ class UserProfile extends Component {
                 date_joined: customer[0].user.date_joined
             })
         })
-        // .then((response) => console.log("UserProfile response", response))
     }
 
     render() {
-        console.log("user profile render", this.state)
+        console.log("props", this.props)
         return (
             <>
                 <h3 className="pageTitle">My Profile</h3>
@@ -42,6 +46,7 @@ class UserProfile extends Component {
                     <button className="flexEl profileButton">My Orders</button>
                     <button className="flexEl profileButton"><Link to="/paymentform">Add/Edit Payment Types</Link></button>
                     <button className="flexEl profileButton"><Link to="/paymentlist">See Payment Types</Link></button>
+                    <button className="flexEl profileButton" onClick={() => this.handleLogout()}>Logout</button>
                 </main>
             </>
         )

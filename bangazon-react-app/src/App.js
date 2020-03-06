@@ -1,16 +1,33 @@
 // Purpose: This file renders the NavBar and ApplicationViews as well as manages the user authentication, registration, login, and logout functions.
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ApplicationViews from './ApplicationViews.js'
 import NavBar from './components/navbar/NavBar.js'
+import APIManager from './modules/APIManager'
+import { withRouter } from 'react-router-dom';
 
 class Bangazon extends Component {
 
   state = {
-    user: false
+    user: false,
+    search: "",
+    searchResults: []
+    
   }
+
+  handleInputChange = (evt) => {
+    let stateToChange = {}
+    stateToChange[evt.target.id] = evt.target.value
+    this.setState(stateToChange)
+
+    // get from the API
+    APIManager.getAll(`products?search=${this.state.search}`)
+        .then((res) => {
+            this.setState({searchResults: res})
+
+        })
+}
 
   isAuthenticated = () => {
     return sessionStorage.getItem("bangazon_token") !== null
@@ -51,7 +68,6 @@ class Bangazon extends Component {
       .then(res => res.json())
       .then(res => {
         if ("valid" in res && res.valid && "token" in res) {
-          console.log("res", res)
           sessionStorage.setItem("bangazon_token", res.token)
         }
         else window.alert('Incorrect username or password. Please try again.')
@@ -72,17 +88,19 @@ class Bangazon extends Component {
     return (
       <>
         <NavBar
-          isAuthenticated={this.isAuthenticated}
+          isAuthenticated={this.isAuthenticated} 
+          handleInputChange={this.handleInputChange}
         />
         <ApplicationViews
           isAuthenticated={this.isAuthenticated}
           registerUser={this.registerUser}
           loginUser={this.loginUser}
           logoutUser={this.logoutUser}
-        />
+          searchResults={this.state.searchResults}
+          searchText={this.state.search}        />
       </>
     );
   }
 }
 
-export default Bangazon;
+export default withRouter(Bangazon);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Redirect} from "react-router-dom";
+import { Route, Redirect, withRouter} from "react-router-dom";
 import Home from './components/home/Home.js'
 import SellForm from './components/home/ProductForm'
 import Location from './components/home/Location'
@@ -7,11 +7,24 @@ import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
 import UserPaymentForm from './components/home/UserPaymentForm.js';
 import UserPaymentList from './components/home/UserPaymentList.js';
+import SearchResults from './components/home/SearchResults'
 import Login from './components/auth/login.js';
 
 
 
 class ApplicationViews extends Component {
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.searchResults !== this.props.searchResults){
+            if (prevProps.searchResults.length === 0){
+                this.props.history.push('/searchresults')
+            } else{
+                console.log("UPDATED SEARCH")
+            }
+        }
+    }
+
+
     render() {
         return (
             <React.Fragment>
@@ -20,35 +33,35 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/register" render={(props) => {
-                    return <Register 
-                                {...props}
-                                {...this.props}/>
+                    return <Register
+                        {...props}
+                        {...this.props} />
                 }} />
 
                 <Route exact path="/login" render={(props) => {
                     return <Login
-                                {...props}
-                                {...this.props}/>
+                        {...props}
+                        {...this.props} />
                 }} />
 
                 <Route exact path="/myprofile" render={(props) => {
                     if (this.props.isAuthenticated()) {
                         return <UserProfile
-                                    {...props}
-                                    {...this.props}
-                         /> 
-                        } else {
-                            return <Redirect to="/login"/>
-                        }
+                            {...props}
+                            {...this.props}
+                        />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
 
                 <Route exact path="/sell" render={(props) => {
                     if (this.props.isAuthenticated()) {
-                        return <SellForm 
-                            {...props}/>
-                        } else {
-                            return <Redirect to="/login"/>
-                        }
+                        return <SellForm
+                            {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
 
                 <Route exact path="/location" render={(props) => {
@@ -56,20 +69,27 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/paymentform" render={(props) => {
-                    return <UserPaymentForm 
-                                {...props}
-                                />
+                    return <UserPaymentForm
+                        {...props}
+                    />
                 }} />
 
                 <Route exact path="/paymentlist" render={(props) => {
                     return <UserPaymentList
-                                {...props}
-                                />
-                }}  />
-                
+                        {...props}
+                    />
+                }} />
+
+                <Route exact path="/searchresults" render={(props) => {
+                    return <SearchResults
+                        {...props}
+                        {...this.props}
+                    />
+                }} />
+
             </React.Fragment>
         )
     }
 }
 
-export default ApplicationViews;
+export default withRouter (ApplicationViews);

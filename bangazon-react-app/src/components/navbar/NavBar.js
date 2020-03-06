@@ -3,6 +3,7 @@
 
 import React, { Component } from 'react';
 import { Link, withRouter } from "react-router-dom";
+import Logo from "./bangazon-icon.png";
 import './NavBar.css';
 
 class NavBar extends Component {
@@ -12,6 +13,7 @@ class NavBar extends Component {
             <header>
                 <nav id="navbar">
                     <ul className="navbar flex">
+                        <li className="nav"><Link className="nav-link" to="/"><img src={Logo} alt={"bangazon logo"} id="smallLogo" /></Link></li>
                         {this.props.isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/sell">Sell</Link></li>
                             : null}

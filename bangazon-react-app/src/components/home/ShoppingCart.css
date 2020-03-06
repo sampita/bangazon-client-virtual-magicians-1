@@ -1,0 +1,24 @@
+#cartContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flexItem {
+    flex-basis: 100%;
+}
+
+.block {
+    display: block;
+}
+
+#completeOrderButton {
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: .8em;
+}
+
+#productName {
+    font-weight: bold;
+    text-transform: uppercase;
+}

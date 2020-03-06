@@ -33,6 +33,18 @@ export default {
     }).then(result => result.json());
   },
 
+  profile_update(route, editedItem) {
+    return fetch(`${remoteURL}/${route}/profile_update`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${sessionStorage.getItem("bangazon_token")}`
+      },
+      body: JSON.stringify(editedItem)
+    })
+    // .then(data => data.json());
+  },
+
   post : function(endpoint, object) {
     return fetch(`${remoteURL}/${endpoint}`, {
       method: "POST",

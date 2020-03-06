@@ -1,3 +1,4 @@
+
 .navbar {
     background-color: #4b5f83;
     padding: .5em;
@@ -8,9 +9,16 @@
     justify-content: space-evenly;
     margin-top: 0px;
     margin-bottom: 0px;
+    align-items: center;
 }
 
 li.nav {
+    list-style: none outside none;
+}
+
+#smallLogo {
+    height: 2em;
+    width: auto;
     list-style: none outside none;
 }
 

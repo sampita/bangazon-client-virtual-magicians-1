@@ -8,6 +8,7 @@ class Register extends Component {
         userName: "",
         firstName: "",
         lastName: "",
+        location: "",
         password: "",
         verifyPassword: ""
     }
@@ -26,6 +27,7 @@ class Register extends Component {
             "username": this.state.userName,
             "first_name": this.state.firstName,
             "last_name": this.state.lastName,
+            "location": this.state.location,
             "email": this.state.email,
             "password": this.state.password
         }
@@ -41,7 +43,6 @@ class Register extends Component {
             <form className="form--login" onSubmit={this.handleRegister}>
                 <h1>Create Account</h1>
                 <fieldset>
-                    {/* <label htmlFor="userName"> Username </label> */}
                     <input onChange={(evt) => this.handleInputChange(evt)}
                         id="userName"
                         type="text"
@@ -51,7 +52,6 @@ class Register extends Component {
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="firstName"> First Name </label> */}
                     <input onChange={this.handleInputChange}
                         id="firstName"
                         type="text"
@@ -61,13 +61,22 @@ class Register extends Component {
                         required autoFocus />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="lastName"> Last Name </label> */}
                     <input onChange={this.handleInputChange}
                         id="lastName"
                         type="text"
                         name="lastName"
                         className="form-control"
                         placeholder="Last name"
+                        required />
+                </fieldset>
+                <fieldset>
+                    {/* <label htmlFor="location"> location </label> */}
+                    <input onChange={this.handleInputChange}
+                        id="location"
+                        type="text"
+                        name="location"
+                        className="form-control"
+                        placeholder="Location"
                         required />
                 </fieldset>
                 <fieldset>
@@ -81,7 +90,6 @@ class Register extends Component {
                         required />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="inputPassword"> Password </label> */}
                     <input onChange={this.handleInputChange}
                         id="password"
                         type="password"
@@ -91,7 +99,6 @@ class Register extends Component {
                         required />
                 </fieldset>
                 <fieldset>
-                    {/* <label htmlFor="verifyPassword"> Verify Password </label> */}
                     <input onChange={this.handleInputChange}
                         id="verifyPassword"
                         type="password"

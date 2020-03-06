@@ -39,7 +39,7 @@ class UserPaymentForm extends Component {
         return (
             <> 
                 <form onSubmit={this.handlePaymentSubmit}>
-                <h3>Add Payment Type</h3>
+                <h3 className="pageTitle">Add Payment Type</h3>
                 <fieldset>
                     <label>Merchant Name</label>
                     <input onChange={(evt) => this.handleInputChange(evt)}

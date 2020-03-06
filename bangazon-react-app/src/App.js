@@ -56,9 +56,9 @@ class Bangazon extends Component {
         }
         else window.alert('Incorrect username or password. Please try again.')
       })
-      // .then(() => this.setState({
-      //   user: this.isAuthenticated()
-      // }))
+      .then(() => this.setState({
+        user: this.isAuthenticated()
+      }))
   }
 
   logoutUser = () => {

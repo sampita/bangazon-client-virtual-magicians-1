@@ -6,7 +6,6 @@ import ProductDetail from './components/home/ProductDetails'
 import Location from './components/home/Location'
 import Register from './components/auth/register.js';
 import UserProfile from './components/home/UserProfile.js';
-import UserPaymentForm from './components/home/UserPaymentForm.js';
 import UserPaymentList from './components/home/UserPaymentList.js';
 import Login from './components/auth/login.js';
 import ProfileEditForm from './components/home/UserEditForm';
@@ -72,13 +71,7 @@ class ApplicationViews extends Component {
                     return <Location />
                 }} />
 
-                <Route exact path="/paymentform" render={(props) => {
-                    return <UserPaymentForm 
-                                {...props}
-                                />
-                }} />
-
-                <Route exact path="/paymentlist" render={(props) => {
+                <Route exact path="/payment" render={(props) => {
                     return <UserPaymentList
                                 {...props}
                                 />

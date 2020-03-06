@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
 import UserPaymentCard from './UserPaymentCard'
+import UserPaymentForm from './UserPaymentForm'
 
 class UserPaymentList extends Component {
 
@@ -36,16 +37,22 @@ class UserPaymentList extends Component {
         console.log("render in pymt list", this.state)
 
         return (
-            <div>
-                {this.state.payment_types.map(payment_type =>
-                    <UserPaymentCard
-                    key={payment_type.id}
-                    payment_type={payment_type}
-                    deletePaymentType={this.deletePaymentType}
-                    {...this.props}
-                    />
-                )}
-            </div>
+            <>
+                <div>
+                    <h3 className="pageTitle">My Payment Types</h3>
+                    {this.state.payment_types.map(payment_type =>
+                        <UserPaymentCard
+                        key={payment_type.id}
+                        payment_type={payment_type}
+                        deletePaymentType={this.deletePaymentType}
+                        {...this.props}
+                        />
+                    )}
+                </div>
+                <div>
+                    <UserPaymentForm />
+                </div>
+            </>
         )
     }
 }

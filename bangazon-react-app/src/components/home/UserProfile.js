@@ -46,6 +46,7 @@ class UserProfile extends Component {
                     <button className="flexEl profileButton">My Orders</button>
                     <button className="flexEl profileButton"><Link to="/paymentlist">View Payment Types</Link></button>
                     <button className="flexEl profileButton"><Link to="/paymentform">Add Payment Types</Link></button>
+                    <button className="flexEl profileButton"><Link to="/profile/update">Update Location</Link></button>
                     <button className="flexEl profileButton" onClick={() => this.handleLogout()}>Logout</button>
                 </main>
             </>

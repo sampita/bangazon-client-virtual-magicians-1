@@ -27,7 +27,7 @@ class ProfileEditForm extends Component {
             last_name: this.state.last_name,
             email: this.state.email,
             password: this.state.password,
-            address: this.state.location
+            address: this.state.address
         }
         APIManager.profile_update("customers", formUpdate)
         this.props.history.push("/myprofile")
@@ -57,11 +57,11 @@ class ProfileEditForm extends Component {
                 <fieldset>
                     {/* <label htmlFor="location"> location </label> */}
                     <input onChange={this.handleInputChange}
-                        id="location"
+                        id="address"
                         type="text"
-                        name="location"
+                        name="address"
                         className="form-control"
-                        placeholder="location"
+                        placeholder="address"
                         value={this.state.address}
                         required />
                 </fieldset>

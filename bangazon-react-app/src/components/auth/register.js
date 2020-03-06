@@ -8,6 +8,7 @@ class Register extends Component {
         userName: "",
         firstName: "",
         lastName: "",
+        location: "",
         password: "",
         verifyPassword: ""
     }
@@ -26,6 +27,7 @@ class Register extends Component {
             "username": this.state.userName,
             "first_name": this.state.firstName,
             "last_name": this.state.lastName,
+            "location": this.state.location,
             "email": this.state.email,
             "password": this.state.password
         }
@@ -68,6 +70,17 @@ class Register extends Component {
                         required />
                 </fieldset>
                 <fieldset>
+                    {/* <label htmlFor="location"> location </label> */}
+                    <input onChange={this.handleInputChange}
+                        id="location"
+                        type="text"
+                        name="location"
+                        className="form-control"
+                        placeholder="Location"
+                        required />
+                </fieldset>
+                <fieldset>
+                    {/* <label htmlFor="inputEmail"> Email address </label> */}
                     <input onChange={this.handleInputChange}
                         id="email"
                         type="email"

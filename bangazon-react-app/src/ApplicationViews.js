@@ -9,6 +9,7 @@ import UserProfile from './components/home/UserProfile.js';
 import UserPaymentForm from './components/home/UserPaymentForm.js';
 import UserPaymentList from './components/home/UserPaymentList.js';
 import Login from './components/auth/login.js';
+import ProfileEditForm from './components/home/UserEditForm';
 import ShoppingCart from './components/home/ShoppingCart.js';
 
 
@@ -42,6 +43,14 @@ class ApplicationViews extends Component {
                             return <Redirect to="/login"/>
                         }
                 }} />
+
+                <Route exact path="/profile/update" render={props => {
+                    if (this.props.isAuthenticated()) {
+                        return <ProfileEditForm {...props} {...this.props} />;
+                    } else {
+                        return <Redirect to="/login" />;
+                    }
+                }}  />
 
                 <Route exact path="/sell" render={(props) => {
                     if (this.props.isAuthenticated()) {

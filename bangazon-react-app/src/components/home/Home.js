@@ -29,7 +29,7 @@ class Home extends Component {
         <div id="products" className="all-products-container">
           <h2>Last 20 products</h2>
 
-          {/* {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)} */}
+          {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)}
           
         </div>
         <br />

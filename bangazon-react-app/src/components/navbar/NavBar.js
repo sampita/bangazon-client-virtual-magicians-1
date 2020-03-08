@@ -17,7 +17,7 @@ class NavBar extends Component {
                         {this.props.isAuthenticated() ?
                             <li className="nav"><Link className="nav-link" to="/sell">Sell</Link></li>
                             : null}
-                        <li className="nav"><Link className="nav-link" to="/buy">Buy</Link></li>
+                        <li className="nav"><Link className="nav-link" to="/product">Buy</Link></li>
                         <input type="text" placeholder="Search product keywords..."></input>
                         {this.props.isAuthenticated() ?
                             <>

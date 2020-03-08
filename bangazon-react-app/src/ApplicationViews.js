@@ -10,6 +10,7 @@ import UserPaymentList from './components/home/UserPaymentList.js';
 import Login from './components/auth/login.js';
 import ProfileEditForm from './components/home/UserEditForm';
 import ShoppingCart from './components/home/ShoppingCart.js';
+import ShopList from './components/home/ShopList.js';
 
 
 
@@ -73,6 +74,12 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/payment" render={(props) => {
                     return <UserPaymentList
+                                {...props}
+                                />
+                }}  />
+
+                <Route exact path="/product" render={(props) => {
+                    return <ShopList
                                 {...props}
                                 />
                 }}  />

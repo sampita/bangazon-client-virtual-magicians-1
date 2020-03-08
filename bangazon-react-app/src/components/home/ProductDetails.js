@@ -22,8 +22,20 @@ class ProductDetail extends Component {
     //     this.props.addToOrder(this.state.product.id)
 
     // }
+    handleCartAdd = () => {
+        const newItemToOrder = {
+            product_id: this.state.product.id 
+        };
+        APIManager.post('orders', newItemToOrder)
+            .then(console.log("test post", newItemToOrder))
+            .then(() => {
+                this.props.history.push("/mycart")
+            })
+    }
 
     render() {
+        console.log("props details", this.props)
+        console.log("state", this.state)
         const { name, id, price, description } = this.state.product;
 
         return (
@@ -41,9 +53,9 @@ class ProductDetail extends Component {
                             </div>
                         </div>
                         <p>{description}</p>
-                        {/* <button onClick={this.handleCartAdd}>
+                        <button onClick={this.handleCartAdd}>
                             Add to Cart
-                        </button> */}
+                        </button>
                     </div>
                 </article>
             </>

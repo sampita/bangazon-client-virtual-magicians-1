@@ -6,17 +6,15 @@ import React, { Component } from 'react';
 
 // has button calling the deleteAnimal function as well
 
-class UserPaymentCard extends Component {
+class ShopCard extends Component {
   render() {
-    console.log("pymt card", this.props)
+    console.log("shop card", this.props)
     return (
     <div className="card-content">
-        <h2>{this.props.payment_type.merchant_name}</h2>
-        <p>Expiration Date: {this.props.payment_type.expiration_date}</p>
-        <button type="button" onClick={() => this.props.deletePaymentType(this.props.payment_type.id)}>Delete</button>
+        {/* <h2>{this.props.product.name}</h2> */}
     </div>
     );
   }
 }
 
-export default UserPaymentCard;
+export default ShopCard;

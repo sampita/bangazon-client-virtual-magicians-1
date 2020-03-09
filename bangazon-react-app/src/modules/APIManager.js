@@ -22,7 +22,7 @@ export default {
       }
     }).then(result => result.json());
   },
-
+//no token
   getAllNoAuth(endpoint) {
     return fetch(`${remoteURL}/${endpoint}`, {
       "method": "GET"

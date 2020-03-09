@@ -22,6 +22,12 @@ export default {
       }
     }).then(result => result.json());
   },
+//no token
+  getAllNoAuth(endpoint) {
+    return fetch(`${remoteURL}/${endpoint}`, {
+      "method": "GET"
+    }).then(result => result.json());
+  },
   
   get(endpoint, id) {
     return fetch(`${remoteURL}/${endpoint}/${id}`, {
@@ -30,6 +36,11 @@ export default {
         "Accept": "application/json",
         "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
       }
+    }).then(result => result.json());
+  },
+  getNoAuth(endpoint, id) {
+    return fetch(`${remoteURL}/${endpoint}/${id}`, {
+      "method": "GET"
     }).then(result => result.json());
   },
 

@@ -11,15 +11,17 @@ class Home extends Component {
     products: []
   }
 
-
   componentDidMount() {
-    APIManager.getAll('products?limit=20')
+    this.props.isAuthenticated() 
+    ? APIManager.getAll('products?limit=20')
       .then((res) => {
         this.setState({ products: res })
-
       })
+    : APIManager.getAllNoAuth('products?limit=20')
+      .then((res) => {
+      this.setState({ products: res })
+    })
   }
-
 
   render() {
     return (
@@ -27,7 +29,10 @@ class Home extends Component {
 
         <h1>Welcome To Bangazon</h1>
         <div id="products" className="all-products-container">
+        
+      
           <h2>Last 20 products</h2>
+        
 
           {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)}
           

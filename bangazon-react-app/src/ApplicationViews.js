@@ -11,6 +11,7 @@ import SearchResults from './components/home/SearchResults'
 import Login from './components/auth/login.js';
 import ProfileEditForm from './components/home/UserEditForm';
 import ShoppingCart from './components/home/ShoppingCart.js';
+import ShopList from './components/home/ShopList.js';
 
 
 
@@ -84,11 +85,14 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/products/:productId(\d+)" render={props => {
-                    return <ProductDetail
-                        {...props}
-                    // addToOrder= {this.props.addToOrder}
-                    />
-                }} />
+                    console.log("route props", props)
+                    console.log("this.props", this.props)
+                    return <ProductDetail 
+                                {...props}
+                                {...this.props}
+                                // addToOrder= {this.props.addToOrder}
+                                />
+                }}/>
 
                 <Route exact path="/location" render={(props) => {
                     return <Location />
@@ -107,6 +111,12 @@ class ApplicationViews extends Component {
                     />
                 }} />
 
+                <Route exact path="/product" render={(props) => {
+                    return <ShopList
+                                {...props}
+                                />
+                }}  />
+
                 <Route exact path="/mycart" render={(props) => {
                     if (this.props.isAuthenticated()) {
                         return <ShoppingCart
@@ -121,4 +131,5 @@ class ApplicationViews extends Component {
     }
 }
 
-export default withRouter(ApplicationViews);
+ export default withRouter(ApplicationViews);
+// export default ApplicationViews

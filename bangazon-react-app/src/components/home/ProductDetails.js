@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../modules/APIManager"
+import { withRouter } from "react-router-dom";
+
 
 class ProductDetail extends Component {
     // also this contains the form to add an itinerary item
@@ -12,6 +14,7 @@ class ProductDetail extends Component {
     }
 
     getProduct = () => {
+        console.log("get 1", this.props)
         APIManager.get("products", this.props.match.params.productId)
             .then((product) => {
                 this.setState({ product: product })
@@ -22,8 +25,19 @@ class ProductDetail extends Component {
     //     this.props.addToOrder(this.state.product.id)
 
     // }
+    handleCartAdd = () => {
+        const newItemToOrder = {
+            product_id: this.state.product.id 
+        };
+        APIManager.post('orders', newItemToOrder)
+            .then(console.log("test post", newItemToOrder))
+            .then(() => {
+                this.props.history.push("/mycart")
+            })
+    }
 
     render() {
+        console.log("render in details", this.props)
         const { name, id, price, description } = this.state.product;
 
         return (
@@ -41,9 +55,12 @@ class ProductDetail extends Component {
                             </div>
                         </div>
                         <p>{description}</p>
-                        {/* <button onClick={this.handleCartAdd}>
+                        {this.props.isAuthenticated() ?
+                        <button onClick={this.handleCartAdd}>
                             Add to Cart
-                        </button> */}
+                        </button>
+                         : null    
+                    }
                     </div>
                 </article>
             </>
@@ -51,4 +68,4 @@ class ProductDetail extends Component {
     }
 }
 
-export default ProductDetail
+export default withRouter(ProductDetail)

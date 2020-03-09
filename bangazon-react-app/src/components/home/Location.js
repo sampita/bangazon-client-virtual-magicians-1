@@ -16,7 +16,6 @@ class Location extends Component {
   };
 
   componentDidMount() {
-    console.log("LOCATION: ComponentDidMount");
     APIManager.getAll("products").then(response => {
       const newLocations = [];
       for (const item of response) {
@@ -42,7 +41,6 @@ class Location extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <form onSubmit={this.handleSubmit}>
         <label>

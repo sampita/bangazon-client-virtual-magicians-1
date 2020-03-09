@@ -43,7 +43,7 @@ class ProductDetail extends Component {
 
     render() {
         console.log("render in details", this.props)
-        const { name, id, price, description } = this.state.product;
+        const { name, id, price, description, image_path } = this.state.product;
 
         return (
             <>
@@ -51,10 +51,11 @@ class ProductDetail extends Component {
                     <div>
                         <div>
                             <div>
-                                <a>
+                                <h3>
                                     {name}
-                                </a>
+                                </h3>
                             </div>
+                            <img src={(`${image_path}`)} alt="Product Image" className="productImage" />
                             <div>
                                 <h2>${price}</h2>
                             </div>

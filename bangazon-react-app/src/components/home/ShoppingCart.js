@@ -28,6 +28,7 @@ export class ShoppingCart extends Component {
                     <ul className="flexItem">
                         {this.state.products.map(product =>
                             <li key={product.id}>
+                                <span className="block" id="productName"><img src={(`${product.image_path}`)} alt="Product Image" className="productImage" /></span>
                                 <span className="block" id="productName">{product.name}</span>
                                 <span className="block">Description: {product.description}</span>
                                 <span className="block">Quantity: {product.quantity}</span>

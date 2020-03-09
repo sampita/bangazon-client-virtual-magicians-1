@@ -1,0 +1,13 @@
+.productImage {
+    width: 12em;
+    height: 10em;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.flexItem {
+    margin: 2em;
+    width: 7em;
+}

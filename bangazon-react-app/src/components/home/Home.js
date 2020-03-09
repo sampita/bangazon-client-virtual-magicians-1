@@ -29,8 +29,12 @@ class Home extends Component {
 
         <h1>Welcome To Bangazon</h1>
         <div id="products" className="all-products-container">
+        
+        {this.props.isAuthenticated()
+        ?
           <h2>Last 20 products</h2>
-
+          : null} 
+          
           {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)}
           
         </div>

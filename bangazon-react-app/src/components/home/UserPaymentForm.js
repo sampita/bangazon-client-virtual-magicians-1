@@ -35,8 +35,6 @@ class UserPaymentForm extends Component {
     }
 
     render() {
-        console.log("form state", this.state)
-        console.log("form props", this.props)
         return (
             <> 
                 <form onSubmit={this.handlePaymentSubmit}>

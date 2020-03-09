@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 
 class UserPaymentCard extends Component {
   render() {
-    console.log("pymt card", this.props)
     return (
     <div className="card-content">
         <h2>{this.props.payment_type.merchant_name}</h2>

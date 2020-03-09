@@ -17,7 +17,6 @@ class ShopList extends Component {
     }
 
     render() {
-        console.log("render in product list", this.state)
 
         return (
             <>

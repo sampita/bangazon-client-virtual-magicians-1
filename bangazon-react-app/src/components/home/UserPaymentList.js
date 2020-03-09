@@ -38,7 +38,6 @@ class UserPaymentList extends Component {
     }
 
     render() {
-        console.log("render in pymt list", this.state)
 
         return (
             <>

@@ -48,8 +48,6 @@ class ProfileEditForm extends Component {
     }
 
     render() {
-        console.log("props in edit form", this.props)
-        console.log("state in render", this.state)
         return(
             <form className="form--login" onSubmit={this.updateProfile}>
                 <h1>Edit Address</h1>

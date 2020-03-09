@@ -20,7 +20,6 @@ class Bangazon extends Component {
     let stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
     this.setState(stateToChange)
-
     // get from the API
     APIManager.getAll(`products?search=${this.state.search}`)
         .then((res) => {

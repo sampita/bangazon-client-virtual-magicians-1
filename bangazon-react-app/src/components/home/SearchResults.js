@@ -11,9 +11,9 @@ export class SearchResults extends Component {
     if (prevProps !== this.props)
     this.setState({searchResults: this.props.searchResults})
 
-    if (this.props.searchText === ""){
-       this.props.history.goBack()
-     }
+    // if (this.props.searchText === ""){
+    //    this.props.history.push('/')
+    //  }
   }
 
 

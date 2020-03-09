@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect, withRouter} from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 import Home from './components/home/Home.js'
 import SellForm from './components/home/ProductForm'
 import ProductDetail from './components/home/ProductDetails'
@@ -15,13 +15,25 @@ import ShoppingCart from './components/home/ShoppingCart.js';
 
 
 class ApplicationViews extends Component {
+    state = {
+        counter: 0
+    }
+
 
     componentDidUpdate(prevProps) {
-        if (prevProps.searchResults !== this.props.searchResults){
-            if (prevProps.searchResults.length === 0){
+        console.log("PREVIOUS-PROPS", prevProps.searchText)
+        console.log("NEW-PROPS", this.props.searchText)
+
+        if (prevProps.searchText !== this.props.searchText) {
+            if (this.props.searchText !== "") {
                 this.props.history.push('/searchresults')
-            } else{
-                console.log("UPDATED SEARCH")
+                this.setState({counter: this.state.counter++})
+            } else {
+                // this.props.history.goBack()
+                // this.props.history.go(-`${this.state.counter}`)
+                this.props.history.push('/')
+                
+
             }
         }
     }
@@ -49,11 +61,11 @@ class ApplicationViews extends Component {
                 <Route exact path="/myprofile" render={(props) => {
                     if (this.props.isAuthenticated()) {
                         return <UserProfile
-                                    {...props}
-                                    {...this.props}/> 
-                        } else {
-                            return <Redirect to="/login"/>
-                        }
+                            {...props}
+                            {...this.props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
 
                 <Route exact path="/profile/update" render={props => {
@@ -62,38 +74,26 @@ class ApplicationViews extends Component {
                     } else {
                         return <Redirect to="/login" />;
                     }
-                }}  />
+                }} />
 
                 <Route exact path="/sell" render={(props) => {
                     if (this.props.isAuthenticated()) {
-                        return <SellForm 
-                                {...props}/>
-                        } else {
-                            return <Redirect to="/login"/>
-                        }
+                        return <SellForm
+                            {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
 
                 <Route exact path="/products/:productId(\d+)" render={props => {
-                    return <ProductDetail 
-                                {...props} 
-                                // addToOrder= {this.props.addToOrder}
-                                />
-                }}/>
+                    return <ProductDetail
+                        {...props}
+                    // addToOrder= {this.props.addToOrder}
+                    />
+                }} />
 
                 <Route exact path="/location" render={(props) => {
                     return <Location />
-                }} />
-
-                <Route exact path="/paymentform" render={(props) => {
-                    return <UserPaymentForm
-                        {...props}
-                    />
-                }} />
-
-                <Route exact path="/paymentlist" render={(props) => {
-                    return <UserPaymentList
-                        {...props}
-                    />
                 }} />
 
                 <Route exact path="/searchresults" render={(props) => {
@@ -105,22 +105,22 @@ class ApplicationViews extends Component {
 
                 <Route exact path="/payment" render={(props) => {
                     return <UserPaymentList
-                                {...props}
-                                />
-                }}  />
+                        {...props}
+                    />
+                }} />
 
                 <Route exact path="/mycart" render={(props) => {
                     if (this.props.isAuthenticated()) {
                         return <ShoppingCart
-                            {...props}/>
-                        } else {
-                            return <Redirect to="/login"/>
-                        }
+                            {...props} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
-                
+
             </React.Fragment>
         )
     }
 }
 
-export default withRouter (ApplicationViews);
+export default withRouter(ApplicationViews);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
 import ProductItem from './ProductItem'
+import "./ProductItem.css"
 
 class ShopList extends Component {
 
@@ -21,11 +22,9 @@ class ShopList extends Component {
         return (
             <>
             <h1>Welcome To Bangazon</h1>
-            <div id="products" className="all-products-container">
-              <h2>All products</h2>
-    
-              {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)}
-              
+            <h2>All products</h2>
+            <div id="products" className="all-products-container flexContainer">
+                {this.state.products.map((item) => <ProductItem key={item.id} item={item} />)}
             </div>
             <br />
             <footer> Bangazooon! © 2020</footer>

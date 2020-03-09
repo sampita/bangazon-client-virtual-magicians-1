@@ -6,3 +6,8 @@
 .flexContainer {
     display: flex;
 }
+
+.flexItem {
+    margin: 2em;
+    width: 7em;
+}

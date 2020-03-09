@@ -50,7 +50,7 @@ class UserPaymentList extends Component {
                     )}
                 </div>
                 <div>
-                    <UserPaymentForm />
+                   <UserPaymentForm />
                 </div>
             </>
         )

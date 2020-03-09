@@ -14,20 +14,25 @@ class ProductDetail extends Component {
     }
 
     getProduct = () => {
-        console.log("get 1", this.props)
-        APIManager.get("products", this.props.match.params.productId)
-            .then((product) => {
-                this.setState({ product: product })
-            })
+        this.props.isAuthenticated()
+
+            ?
+            APIManager.get("products", this.props.match.params.productId)
+                .then((product) => {
+                    this.setState({ product: product })
+                })
+
+            :
+            APIManager.getNoAuth("products", this.props.match.params.productId)
+                .then((product) => {
+                    this.setState({ product: product })
+                })
+
     }
 
-    // handleCartAdd = () => {
-    //     this.props.addToOrder(this.state.product.id)
-
-    // }
     handleCartAdd = () => {
         const newItemToOrder = {
-            product_id: this.state.product.id 
+            product_id: this.state.product.id
         };
         APIManager.post('orders', newItemToOrder)
             .then(console.log("test post", newItemToOrder))
@@ -38,7 +43,7 @@ class ProductDetail extends Component {
 
     render() {
         console.log("render in details", this.props)
-        const { name, id, price, description } = this.state.product;
+        const { name, id, price, description, image_path } = this.state.product;
 
         return (
             <>
@@ -46,21 +51,22 @@ class ProductDetail extends Component {
                     <div>
                         <div>
                             <div>
-                                <a>
+                                <h3>
                                     {name}
-                                </a>
+                                </h3>
                             </div>
+                            <img src={(`${image_path}`)} alt="Product Image" className="productImage" />
                             <div>
                                 <h2>${price}</h2>
                             </div>
                         </div>
                         <p>{description}</p>
                         {this.props.isAuthenticated() ?
-                        <button onClick={this.handleCartAdd}>
-                            Add to Cart
+                            <button onClick={this.handleCartAdd}>
+                                Add to Cart
                         </button>
-                         : null    
-                    }
+                            : null
+                        }
                     </div>
                 </article>
             </>

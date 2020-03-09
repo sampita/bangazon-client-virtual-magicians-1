@@ -13,7 +13,7 @@ export class ProductItem extends Component {
           <h3 className="flexItem">
             <Link to={`/products/${this.props.item.id}`}>{this.props.item.name}</Link>
           </h3>
-          <p className="flexItem">Price: {this.props.item.price}</p>
+          <p className="flexItem">Price: ${this.props.item.price}</p>
           <p className="flexItem">Quantity Available: {this.props.item.quantity}</p>
         </article>
       </>

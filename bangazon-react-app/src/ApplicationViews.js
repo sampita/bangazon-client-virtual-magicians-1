@@ -21,8 +21,6 @@ class ApplicationViews extends Component {
 
 
     componentDidUpdate(prevProps) {
-        console.log("PREVIOUS-PROPS", prevProps.searchText)
-        console.log("NEW-PROPS", this.props.searchText)
 
         if (prevProps.searchText !== this.props.searchText) {
             if (this.props.searchText !== "") {

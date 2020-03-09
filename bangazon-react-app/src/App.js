@@ -44,7 +44,6 @@ class Bangazon extends Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log("res", res)
         if ("token" in res) {
           sessionStorage.setItem("bangazon_token", res.token)
         }
@@ -83,7 +82,6 @@ class Bangazon extends Component {
   }
 
   render() {
-    console.log("app.js component", this.props)
     return (
       <>
         <NavBar

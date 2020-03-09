@@ -38,6 +38,11 @@ export default {
       }
     }).then(result => result.json());
   },
+  getNoAuth(endpoint, id) {
+    return fetch(`${remoteURL}/${endpoint}/${id}`, {
+      "method": "GET"
+    }).then(result => result.json());
+  },
 
   profile_update(route, editedItem) {
     return fetch(`${remoteURL}/${route}/profile_update`, {

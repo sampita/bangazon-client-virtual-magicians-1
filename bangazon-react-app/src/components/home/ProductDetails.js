@@ -14,20 +14,25 @@ class ProductDetail extends Component {
     }
 
     getProduct = () => {
-        console.log("get 1", this.props)
-        APIManager.get("products", this.props.match.params.productId)
-            .then((product) => {
-                this.setState({ product: product })
-            })
+        this.props.isAuthenticated()
+
+            ?
+            APIManager.get("products", this.props.match.params.productId)
+                .then((product) => {
+                    this.setState({ product: product })
+                })
+
+            :
+            APIManager.getNoAuth("products", this.props.match.params.productId)
+                .then((product) => {
+                    this.setState({ product: product })
+                })
+
     }
 
-    // handleCartAdd = () => {
-    //     this.props.addToOrder(this.state.product.id)
-
-    // }
     handleCartAdd = () => {
         const newItemToOrder = {
-            product_id: this.state.product.id 
+            product_id: this.state.product.id
         };
         APIManager.post('orders', newItemToOrder)
             .then(console.log("test post", newItemToOrder))
@@ -56,11 +61,11 @@ class ProductDetail extends Component {
                         </div>
                         <p>{description}</p>
                         {this.props.isAuthenticated() ?
-                        <button onClick={this.handleCartAdd}>
-                            Add to Cart
+                            <button onClick={this.handleCartAdd}>
+                                Add to Cart
                         </button>
-                         : null    
-                    }
+                            : null
+                        }
                     </div>
                 </article>
             </>

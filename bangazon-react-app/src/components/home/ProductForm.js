@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from "react-router-dom";
 import APIManager from '../../modules/APIManager'
 
 
@@ -139,4 +140,4 @@ class SellForm extends Component {
             )
         }
     }
-    export default SellForm;
+    export default withRouter(SellForm);

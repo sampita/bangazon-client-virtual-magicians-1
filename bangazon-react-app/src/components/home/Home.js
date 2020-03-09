@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
 import ProductItem from './ProductItem'
+import Location from './Location'
 // import './Home.css'
 
 
@@ -27,6 +28,10 @@ class Home extends Component {
       <>
 
         <h1>Welcome To Bangazon</h1>
+        <div>
+          <p>Search by location:</p>
+          < Location />
+        </div>
         <div id="products" className="all-products-container">
           <h2>Last 20 products</h2>
 

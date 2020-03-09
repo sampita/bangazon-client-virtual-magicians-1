@@ -55,7 +55,7 @@ class Location extends Component {
             ))}
           </select>
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
       </form>
     );
   }

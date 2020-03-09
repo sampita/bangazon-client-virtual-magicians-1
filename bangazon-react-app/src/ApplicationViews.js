@@ -67,9 +67,9 @@ class ApplicationViews extends Component {
                                 />
                 }}/>
 
-                <Route exact path="/location" render={(props) => {
+                {/* <Route exact path="/location" render={(props) => {
                     return <Location />
-                }} />
+                }} /> */}
 
                 <Route exact path="/payment" render={(props) => {
                     return <UserPaymentList

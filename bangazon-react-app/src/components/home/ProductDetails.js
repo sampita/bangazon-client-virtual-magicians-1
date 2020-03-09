@@ -13,18 +13,19 @@ class ProductDetail extends Component {
 
     getProduct = () => {
         APIManager.get("products", this.props.match.params.productId)
-            .then((product) => {
-                this.setState({ product: product })
-            })
+        .then((product) => {
+            this.setState({ product: product })
+        })
     }
-
+    
     // handleCartAdd = () => {
-    //     this.props.addToOrder(this.state.product.id)
-
-    // }
-
-    render() {
-        const { name, id, price, description } = this.state.product;
+        //     this.props.addToOrder(this.state.product.id)
+        
+        // }
+        
+        render() {
+            console.log('params', this.props.match.params)
+            const { name, id, price, description } = this.state.product;
 
         return (
             <>

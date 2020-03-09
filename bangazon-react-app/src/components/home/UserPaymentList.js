@@ -10,7 +10,7 @@ class UserPaymentList extends Component {
         loadingStatus: true,
     }
 
-    componentDidMount() {
+    handleRefresh = () => {
         APIManager.getAll("payment_types")
         .then((payment_types) => {
             this.setState({
@@ -18,6 +18,10 @@ class UserPaymentList extends Component {
                 loadingStatus: false
             })
         })
+    }
+
+    componentDidMount() {
+        this.handleRefresh()
     }
 
     deletePaymentType = (id) => {
@@ -50,7 +54,9 @@ class UserPaymentList extends Component {
                     )}
                 </div>
                 <div>
-                    <UserPaymentForm />
+                    <UserPaymentForm
+                    {...this.props}
+                    handleRefresh={this.handleRefresh} />
                 </div>
             </>
         )

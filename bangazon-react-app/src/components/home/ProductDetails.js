@@ -53,9 +53,12 @@ class ProductDetail extends Component {
                             </div>
                         </div>
                         <p>{description}</p>
+                        {this.props.isAuthenticated() ?
                         <button onClick={this.handleCartAdd}>
                             Add to Cart
                         </button>
+                        : null    
+                    }
                     </div>
                 </article>
             </>

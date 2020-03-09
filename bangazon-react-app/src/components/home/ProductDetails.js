@@ -12,6 +12,7 @@ class ProductDetail extends Component {
     }
 
     getProduct = () => {
+        console.log("get 1", this.props)
         APIManager.get("products", this.props.match.params.productId)
             .then((product) => {
                 this.setState({ product: product })
@@ -34,6 +35,7 @@ class ProductDetail extends Component {
     }
 
     render() {
+        console.log("render in details", this.props)
         const { name, id, price, description } = this.state.product;
 
         return (
@@ -55,7 +57,7 @@ class ProductDetail extends Component {
                         <button onClick={this.handleCartAdd}>
                             Add to Cart
                         </button>
-                        : null    
+                         : null    
                     }
                     </div>
                 </article>

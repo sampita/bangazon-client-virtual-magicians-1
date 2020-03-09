@@ -85,9 +85,11 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/products/:productId(\d+)" render={props => {
+                    console.log("route props", props)
+                    console.log("this.props", this.props)
                     return <ProductDetail 
                                 {...props}
-                                {...this.props} 
+                                {...this.props}
                                 // addToOrder= {this.props.addToOrder}
                                 />
                 }}/>
@@ -129,4 +131,5 @@ class ApplicationViews extends Component {
     }
 }
 
-export default withRouter(ApplicationViews);
+// export default withRouter(ApplicationViews);
+export default ApplicationViews

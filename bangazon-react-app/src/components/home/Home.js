@@ -11,15 +11,17 @@ class Home extends Component {
     products: []
   }
 
-
   componentDidMount() {
-    APIManager.getAll('products?limit=20')
+    this.props.isAuthenticated() 
+    ? APIManager.getAll('products?limit=20')
       .then((res) => {
         this.setState({ products: res })
-
       })
+    : APIManager.getAllNoAuth('products?limit=20')
+      .then((res) => {
+      this.setState({ products: res })
+    })
   }
-
 
   render() {
     return (

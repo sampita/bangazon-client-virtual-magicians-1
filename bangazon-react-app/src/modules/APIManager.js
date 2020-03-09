@@ -22,6 +22,12 @@ export default {
       }
     }).then(result => result.json());
   },
+
+  getAllNoAuth(endpoint) {
+    return fetch(`${remoteURL}/${endpoint}`, {
+      "method": "GET"
+    }).then(result => result.json());
+  },
   
   get(endpoint, id) {
     return fetch(`${remoteURL}/${endpoint}/${id}`, {

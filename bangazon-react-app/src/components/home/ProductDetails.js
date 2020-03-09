@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 import APIManager from "../../modules/APIManager"
+import { withRouter } from "react-router-dom";
+
 
 class ProductDetail extends Component {
     // also this contains the form to add an itinerary item
@@ -66,4 +68,4 @@ class ProductDetail extends Component {
     }
 }
 
-export default ProductDetail
+export default withRouter(ProductDetail)

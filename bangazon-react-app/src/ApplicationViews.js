@@ -131,5 +131,5 @@ class ApplicationViews extends Component {
     }
 }
 
-// export default withRouter(ApplicationViews);
-export default ApplicationViews
+ export default withRouter(ApplicationViews);
+// export default ApplicationViews

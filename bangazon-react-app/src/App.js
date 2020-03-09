@@ -87,6 +87,8 @@ class Bangazon extends Component {
         <NavBar
           isAuthenticated={this.isAuthenticated} 
           handleInputChange={this.handleInputChange}
+          searchResults={this.state.searchResults}
+          searchText={this.state.search} 
         />
         <ApplicationViews
           isAuthenticated={this.isAuthenticated}

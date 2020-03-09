@@ -45,6 +45,18 @@ export default {
     // .then(data => data.json());
   },
 
+  put(route, editedItem, id) {
+    return fetch(`${remoteURL}/${route}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${sessionStorage.getItem("bangazon_token")}`
+      },
+      body: JSON.stringify(editedItem)
+    })
+    // .then(data => data.json());
+  },
+
   post(endpoint, object) {
     return fetch(`${remoteURL}/${endpoint}`, {
         method: "POST",
@@ -55,6 +67,16 @@ export default {
         },
         body: JSON.stringify(object)
     }).then(data => data.json())
-}
+},
+
+  patch(endpoint, editedItem, id) {
+    return fetch(`${remoteURL}/${endpoint}/${id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedItem)
+    }).then(data => data.json());
+  },
 };
 

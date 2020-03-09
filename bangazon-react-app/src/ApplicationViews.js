@@ -12,6 +12,7 @@ import Login from './components/auth/login.js';
 import ProfileEditForm from './components/home/UserEditForm';
 import ShoppingCart from './components/home/ShoppingCart.js';
 import ShopList from './components/home/ShopList.js';
+import ThankYou from './components/home/ThankYou.js';
 
 
 
@@ -105,9 +106,17 @@ class ApplicationViews extends Component {
                     />
                 }} />
 
+                <Route exact path="/thankyou" render={(props) => {
+                    return <ThankYou
+                        {...props}
+                        {...this.props}
+                    />
+                }} />
+
                 <Route exact path="/payment" render={(props) => {
                     return <UserPaymentList
                         {...props}
+                        {...this.props}
                     />
                 }} />
 

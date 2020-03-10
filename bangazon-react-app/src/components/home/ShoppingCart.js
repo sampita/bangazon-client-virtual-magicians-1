@@ -36,7 +36,7 @@ export class ShoppingCart extends Component {
                             </li>
                         )}
                     </ul>
-                    <button className="flexItem" id="completeOrderButton"><Link to="/paymentform">Complete Order</Link></button>
+                    <button className="flexItem" id="completeOrderButton"><Link to="/payment">Complete Order</Link></button>
                 </main>
             </>
         )

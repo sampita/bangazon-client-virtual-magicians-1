@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
 import UserPaymentCard from './UserPaymentCard'
 import UserPaymentForm from './UserPaymentForm'
+import { withRouter } from "react-router-dom";
 
 class UserPaymentList extends Component {
 
     state = {
         payment_types: [],
+        open_order: [],
         loadingStatus: true,
     }
 
@@ -38,7 +40,7 @@ class UserPaymentList extends Component {
     }
 
     render() {
-
+        console.log("list props", this.props)
         return (
             <>
                 <div>
@@ -55,11 +57,12 @@ class UserPaymentList extends Component {
                 <div>
                     <UserPaymentForm
                     {...this.props}
-                    handleRefresh={this.handleRefresh} />
+                    handleRefresh={this.handleRefresh}
+                    />
                 </div>
             </>
         )
     }
 }
 
-export default UserPaymentList
+export default withRouter(UserPaymentList)
